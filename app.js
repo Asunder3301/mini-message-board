@@ -1,6 +1,7 @@
 import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import { newRouter } from "./routes/newRouter.js";
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
@@ -10,6 +11,7 @@ const assetsPath = path.join(__dirname, process.env.STATIC_DIR || "public");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use("/new", newRouter);
 app.use(express.static(assetsPath));
 
 app.use((err, req, res, next) => {
