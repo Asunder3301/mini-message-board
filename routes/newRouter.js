@@ -2,8 +2,10 @@ import express from "express";
 
 const newRouter = express.Router();
 
+const link = { href: "/", text: "Home" }
+
 newRouter.get("/", (req, res) => {
-    res.render("form", { title: "New Message" });
+    res.render("form", { title: "New Message", link: link });
 })
 
 newRouter.use((err, req, res, next) => {

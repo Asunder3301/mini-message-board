@@ -17,6 +17,8 @@ const messages = [
     }
 ];
 
+const link = { href: "/new", text: "New Message" };
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
 
@@ -34,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(assetsPath));
 
 app.get("/", (req, res) => {
-    res.render("index", { title: "Mini Messageboard", messages: messages });
+    res.render("index", { title: "Mini Messageboard", messages: messages, link: link });
 });
 
 app.post("/new", (req, res) => {
