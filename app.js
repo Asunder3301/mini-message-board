@@ -14,10 +14,10 @@ app.use(express.static(assetsPath));
 
 app.use((err, req, res, next) => {
     console.error(`ERROR: ${err}`);
+
+    res.status(err.statusCode || 500).send(err.message);
 });
 
 app.listen(PORT, () => {
   console.log(`Port ${PORT} is currently running`);
-
-  res.status(err.statusCode || 500).send(err.message);
 });
