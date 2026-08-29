@@ -30,11 +30,12 @@ app.set("views", viewsPath);
 app.set("view engine", "ejs");
 
 app.use("/new", newRouter);
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(assetsPath));
 
 app.get("/", (req, res) => {
     res.render("index", { title: "Mini Messageboard", messages: messages });
-})
+});
 
 app.use((err, req, res, next) => {
     console.error(`ERROR: ${err}`);
