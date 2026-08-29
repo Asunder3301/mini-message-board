@@ -2,7 +2,8 @@ import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import { newRouter } from "./routes/newRouter.js";
-import { title } from "process";
+import { detailRouter } from "./routes/detailRouter.js";
+// import { title } from "process";
 
 const messages = [
     {
@@ -31,6 +32,7 @@ const PORT = process.env.PORT || 8080;
 app.set("views", viewsPath);
 app.set("view engine", "ejs");
 
+app.use("/detail", detailRouter);
 app.use("/new", newRouter);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(assetsPath));
