@@ -37,6 +37,10 @@ app.get("/", (req, res) => {
     res.render("index", { title: "Mini Messageboard", messages: messages });
 });
 
+app.post("/new", (req, res) => {
+    messages.push({ text: req.body.message, user: req.body.author, added: new Date() });
+});
+
 app.use((err, req, res, next) => {
     console.error(`ERROR: ${err}`);
 
