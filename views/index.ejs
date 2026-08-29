@@ -17,6 +17,10 @@
                 <p><%= message.text %></p>
                 <p><%= message.user %></p>
                 <p><%= message.added %></p>
+
+                <% const query = new URLSearchParams ({ text: message.text, user: message.user, added: message.added }).toString(); %>
+
+                <a href="/detail?<%= query %>">Open</a>
             </div>
         <% }) %>
     </main>
