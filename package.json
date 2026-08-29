@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Asunder3301/mini-message-board/issues"
   },
-  "homepage": "https://github.com/Asunder3301/mini-message-board#readme"
+  "homepage": "https://github.com/Asunder3301/mini-message-board#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
