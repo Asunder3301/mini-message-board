@@ -18,4 +18,6 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`Port ${PORT} is currently running`);
+
+  res.status(err.statusCode || 500).send(err.message);
 });
