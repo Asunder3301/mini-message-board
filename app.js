@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const assetsPath = path.join(__dirname, process.env.STATIC_DIR || "public");
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.static(assetsPath));
 
