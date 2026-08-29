@@ -39,6 +39,7 @@ app.get("/", (req, res) => {
 
 app.post("/new", (req, res) => {
     messages.push({ text: req.body.message, user: req.body.author, added: new Date() });
+    res.redirect("/");
 });
 
 app.use((err, req, res, next) => {
