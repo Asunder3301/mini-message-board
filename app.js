@@ -8,12 +8,12 @@ const messages = [
     {
         text: "Hi there!",
         user: "Amando",
-        added: new Date()
+        added: new Date().toISOString().split("T")[0]
     },
     {
         text: "Hello World!",
         user: "Charles",
-        added: new Date()
+        added: new Date().toISOString().split("T")[0]
     }
 ];
 
@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/new", (req, res) => {
-    messages.push({ text: req.body.message, user: req.body.author, added: new Date() });
+    messages.push({ text: req.body.message, user: req.body.author, added: new Date().toISOString().split("t")[0] });
     res.redirect("/");
 });
 
