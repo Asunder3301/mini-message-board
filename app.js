@@ -1,9 +1,8 @@
 import express from "express";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
+import path, { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { newRouter } from "./routes/newRouter.js";
 import { detailRouter } from "./routes/detailRouter.js";
-// import { title } from "process";
 
 const messages = [
     {
@@ -23,11 +22,11 @@ const link = { href: "/new", text: "New Message" };
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
 
-const assetsPath = path.join(__dirname, process.env.STATIC_DIR || "public");
-const viewsPath = path.join(__dirname, process.env.VIEWS_DIR || "views");
+const assetsPath = path.join(__dirname, process.env.STATIC_DIR);
+const viewsPath = path.join(__dirname, process.env.VIEWS_DIR);
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 
 app.set("views", viewsPath);
 app.set("view engine", "ejs");
