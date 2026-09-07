@@ -14,8 +14,8 @@
 
         <% messages.map((message) => { %> 
             <div class="msg-group">
-                <p><%= message.text %></p>
-                <p><%= message.user %></p>
+                <p><%= message.username %></p>
+                <p><%= message.message %></p>
                 <p><%= message.added %></p>
 
                 <% const query = new URLSearchParams ({ text: message.text, user: message.user, added: message.added }).toString(); %>
